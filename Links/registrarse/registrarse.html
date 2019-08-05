@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <?php 
+        include ("formularioRegistroUsuario.php"); 
+    ?>
+    
+<style>
+    body{
+        display: block;
+        background-color: lightyellow;
+    }
+    label{
+        padding-left: .5mm;
+    }
+</style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="Empresa Fiber" content="Tarea de programar un sitio web sencillo para la empresa de hosting Fiber">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <link rel="stylesheet" href="../../styles.css">
+       
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+       
+  
+   
+   
+    <title>Registrarse</title>
+</head>
+<body >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="barra_navegacion_superior">          
+                <a id="icono" class="navbar-brand" href="../../index.html"><img  src="../../Img/logo.png" alt="Logotipo de la empresa SanFrA" usemap="#workmap">
+                </a>
+        
+                <button id="boton" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse"  id="navbarSupportedContent">        
+                    <ul class="navbar-nav mr-auto">                  
+                        
+                        <li class="nav-item active"> 
+                            <a id="ej" class="nav-link" href="../login/login.html">Ingresar</a>
+                        </li>   
+    
+                        <li class="nav-item active"> 
+                            <a id="ej" class="nav-link" href="registrarse.html">Registrarse</a>
+                        </li>
+                        
+                        <li class="nav-item active"> 
+                            <a id="ej" class="nav-link" href="../cuadernoDeCampo/cuadernoDeCampo.html">Cuaderno de Campo</a>
+                        </li>  
+    
+                        <li class="nav-item active">     
+                            <a class="nav-link" href="../Informacion/Informacion.html">Informacion</a>
+                        </li>     
+                
+                        <li class="nav-item active">     
+                            <a class="nav-link" href="../Contacto/Contacto.html">Contacto</a>                                 
+                        </li> 
+                    </ul>
+                </div>
+    </nav>
+    
+
+    <section>
+        <div id="content">
+		<h1>Registro de Usuarios</h1>
+		<form action="formularioRegistroUsuario.php" method="POST">
+	        <table border="1">
+		        <tr>
+		            <td><label> Nombre:</label></td>
+		            <td><input type="text" name="nombreUsuario" placeholder="Nombre" required/></td>
+		        </tr>
+		        <tr>
+		            <td><label> Apellidos:</label></td>
+		            <td><input type="text" name="apellidosUsuario" placeholder="Apellidos" required/></td>
+                </tr> 
+                <tr>
+                    <td><label> DNI:</label></td>
+                        <td><input type="number"  name="dniUsuario" placeholder="DNI" required/></td>
+                </tr> 
+                <tr>
+                    <td><label> CUIT:</label></td>
+                    <td><input  type="text" name="cuitUsuario" placeholder="CUIT" required/></td>
+                </tr> 
+                <tr>
+                    <td><label> Fecha de nacimiento:</label></td>
+                    <td><input type="date"   name="fechaNacimientoUsuario" placeholder="Fecha de Nacimiento" required/></td>
+                </tr> 
+		        <tr>
+		            <td><label> Correo electronico:</label></td>
+		            <td><input type="email" name="emailUsuario" placeholder="ejemplo@mail.com" required/></td>
+                </tr> 
+		        <tr>
+		            <td><label> Contraseña:</label></td>
+		            <td><input type="password" name="passwordUsuario" placeholder="****************" required/></td>
+                </tr> 
+		        <tr>
+		            <td><label> Repetir Contraseña:</label></td>
+		            <td><input type="password" name="rePasswordUsuario" placeholder="****************" required/></td>
+                </tr> 
+		        <tr>
+                    <td>
+                        <button type="reset" onclick="">Restablecer</button>    
+                    </td> 
+                    <td>
+                        <button type="submit" onclick="">Registrarme</button>                         
+                    </td>
+		        </tr>
+		</form>
+	    </div>
+    </section>
+  
+ 
+  
+
+</body>
+</html>

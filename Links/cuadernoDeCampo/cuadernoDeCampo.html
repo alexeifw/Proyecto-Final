@@ -1,0 +1,185 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css" />	
+<style>
+        hr{
+            border-top: 1px solid black;
+        }
+         
+            body{
+                display: block;
+                padding: 0%;
+                margin: 0cm;
+
+            }
+            #botones{
+                column-count:2;
+                display: grid;
+                align-content: center;
+                
+
+            }
+            h2 {
+                color: beige;
+                background-color: black;
+                column-span:all;
+            }
+             #map {
+                 display: flex;
+                 width: 75%;
+                 min-width: 75%;
+                 height:650px;
+                  
+            }
+            
+            #container {
+                min-height: 100%;
+                min-width: 100%;
+                display: flex;
+                column-count:2;
+                width:100%; 
+                height:650px;
+                line-height: 1.5;
+                text-shadow:    -1px -1px 1px rgb(253, 252, 252),
+                                0px 4px 1px rgba(253, 252, 252,0.7),
+                                4px 4px 5px rgba(253, 252, 252,0.7),
+                                0px 0px 7px rgba(253, 252, 252,0.7);
+            }
+            
+            #StationList {
+                width: 25%;
+                height:650px;
+                display: block;
+                min-width: 25%;
+                border: 1px solid black;
+                overflow-y: scroll;
+                overflow-x: hidden;
+            }
+            
+            #listOverlay { 
+                 padding: 1mm;
+                width: 100%;
+                min-width: 100%;
+            }
+            
+            #listOverlay input, textarea, #finalizar {
+                
+                width: 100%;
+                min-width: 100%;
+            }
+            
+            #listOverlay li {
+                background-color: rgb(185, 185, 185);
+                margin-bottom: 2px;
+                margin-top: 2px;
+                padding: 0px;
+                width: 100%;
+            }
+            
+             
+           
+            
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHpypaMnDl_DTgY_5mb5AzDxrnReEDMDo&libraries=drawing"></script>
+<script type="text/javascript" src="js/DibujarParcelas.js"></script>
+
+
+<meta name="viewport" content="initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Empresa Fiber" content="Tarea de programar un sitio web sencillo para la empresa de hosting Fiber">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<link rel="stylesheet" href="../../styles.css">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<title>Dibujar Parcelas</title>     
+</head>
+<body  > 
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="barra_navegacion_superior">          
+            <a id="icono" class="navbar-brand" href="../../index.html"><img  src="../../Img/logo.png" alt="Logotipo de la empresa SanFrA" usemap="#workmap">
+            </a>
+    
+            <button id="boton" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse"  id="navbarSupportedContent">        
+                <ul class="navbar-nav mr-auto">                  
+                    
+                    <li class="nav-item active"> 
+                        <a id="ej" class="nav-link" href="../login/login.html">Ingresar</a>
+                    </li>   
+                    
+                    <li class="nav-item active"> 
+                        <a id="ej" class="nav-link" href="../registrarse/registrarse.html">Registrarse</a>
+                    </li>   
+                    
+                    <li class="nav-item active"> 
+                        <a id="ej" class="nav-link" href="cuadernoDeCampo.html">Cuaderno de Campo</a>
+                    </li>  
+
+                    <li class="nav-item active">     
+                        <a class="nav-link" href="../Informacion/Informacion.html">Informacion</a>
+                    </li>     
+            
+                    <li class="nav-item active">     
+                        <a class="nav-link" href="../Contacto/Contacto.html">Contacto</a>                                 
+                    </li> 
+                </ul>
+            </div>
+</nav>
+
+<section id="seccionMapa">
+            
+                        <h2>Utiliza el mouse para dibujar la parcela</h2>
+               
+            
+                <div style="background-color: beige" id="container">	
+
+                    <div id="StationList">
+                        <div>
+                            <ul id="listOverlay"> 
+                            </ul>
+                        </div>
+                        <div id="botones">
+                            <button id="guardar">Guardar Parcela</button>
+                            <a href="misParcelas.html" ><button id="finalizar">Finalizar Carga</button></a>
+                           
+                        </div>
+                    </div>
+                    
+                   
+                        <div id="map">
+                        </div>
+                   
+                </div>
+                
+</section>
+
+<footer>
+            <address>
+                    <p>SanFrA Argentina S.A.</p> 
+                    <p>Uruguay 1037, piso 1°, Buenos Aires, República Argentina</p>
+                    <p>Teléfono (005411) 4811-0556 / Fax (005411) 4815-4742</p>
+            </address>        
+            <a href="../../index.html">http:/www.sanfra.com.ar</a><br>        
+            <small>Alexei FW Derechos Reservados &copy; 2019</small>           
+</footer> 
+
+</body>
+</html>
